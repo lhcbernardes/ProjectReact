@@ -4,6 +4,8 @@ import Register from '../Register';
 import {
   Container,
   Background,
+  Left,
+  Right,
 } from './styles';
 
 import { useForm } from 'react-hook-form';
@@ -46,7 +48,7 @@ const Login: React.FC = () => {
     <>
     <Background>
       <Container>
-      <div className="left">
+      <Left>
         <form onSubmit={handleSubmit(onSubmit)}>
           <section >
           <div className="form-group">
@@ -75,11 +77,11 @@ const Login: React.FC = () => {
           <button type="submit">Entrar</button>
           <div>Não tem uma conta?&nbsp;<Link to="/register">Registre-se</Link></div>
         </form>
-      </div>
-      <div className="right">
-            <img src="logo192.png"></img>
-            <h1>Faça seu login na plataforma</h1>
-          </div>
+      </Left>
+      <Right>
+        <img src="logo192.png"></img>
+        <h1>Faça seu login na plataforma</h1>
+      </Right>
       </Container>
     </Background>
     <Switch>

@@ -28,9 +28,9 @@ export const Container = styled.div`
     font-size: 54px;
     line-height: 64px;
   }
+`;
 
-  .right,
-  .left {
+  export const Left = styled.div`
     flex: 1;
     height: auto;
     display: flex;
@@ -38,9 +38,6 @@ export const Container = styled.div`
     align-items: center;
     justify-content: space-around;
     text-align: left;
-  }
-   
-  .left {
     border-radius: 5px;  
     margin-right: 10%;
     background: var(--color-card);
@@ -130,7 +127,14 @@ export const Container = styled.div`
         display:inline-block;
       }
     }
-  }
-`;
+  `;
 
-
+  export const Right = styled.div`
+    flex: 1;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    text-align: left;
+  `;

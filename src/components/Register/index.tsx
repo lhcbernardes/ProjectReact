@@ -7,6 +7,8 @@ import * as Yup from 'yup';
 import {
   Container,
   Background,
+  Left,
+  Right,
 } from './styles';
 
 type UserSubmitForm = {
@@ -54,7 +56,7 @@ const Register: React.FC = () => {
     <>
       <Background>
         <Container>
-          <div className="left">
+          <Left>
             <form onSubmit={handleSubmit(onSubmit)}>
               <section >
                 <div className="form-group">
@@ -125,11 +127,11 @@ const Register: React.FC = () => {
               <button type="submit">Registrar</button>
               <div>Já tem uma conta?&nbsp;<a href="/">Login</a></div>
             </form>
-          </div>
-          <div className="right">
+          </Left>
+          <Right>
             <img src="logo192.png"></img>
             <h1>Faça seu registro na plataforma</h1>
-          </div>
+          </Right>
 
         </Container>
       </Background>

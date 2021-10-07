@@ -29,9 +29,9 @@ export const Container = styled.div`
     font-size: 54px;
     line-height: 64px;
   }
+`;
 
-  .right,
-  .left {
+  export const Left = styled.div`
     flex: 1;
     height: auto;
     display: flex;
@@ -39,11 +39,6 @@ export const Container = styled.div`
     align-items: center;
     justify-content: space-around;
     text-align: left;
-  }
-
-  
-   
-  .left {
     border-radius: 5px;  
     margin-right: 10%;
     background: var(--color-card);
@@ -73,7 +68,7 @@ export const Container = styled.div`
         border: 2px solid var(--color-header);        
       }
 
-      input.is-invalid {
+      input.invalid {
         border-color: 2px solid red;
       }
 
@@ -112,8 +107,39 @@ export const Container = styled.div`
       button:hover {
         opacity: 0.8;
       }
+
+      .checkbox-wrapper {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+      }
+
+      .checkbox {
+        vertical-align: top;
+        display:inline-block;
+        width: 15px;
+        margin-top: 15px;
+        display: flex;
+        align-content: center;
+      }
+
+      .checkbox-label {
+        white-space: normal;
+        display:inline-block;
+      }
     }
-  }
-`;
+  `;
+
+  export const Right = styled.div`
+    flex: 1;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    text-align: left;
+  `;
+
+
 
 

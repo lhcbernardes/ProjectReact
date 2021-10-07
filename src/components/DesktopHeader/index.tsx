@@ -12,15 +12,11 @@ import {
 } from './styles';
 
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
   Link
 } from "react-router-dom";
 
 const Header: React.FC = () => {
   return (
-    <Router>
     <Container>
       <Wrapper>
         <div className="left">
@@ -39,28 +35,16 @@ const Header: React.FC = () => {
             </button>
             <button>
               <ProfileCircle src="https://github.com/lhcbernardes.png" />
-              <Link to="/profile"> 
-              <span>
-                Eu <CaretDownIcon />
-              </span>
+              <Link to="/profile">
+                <span>
+                  Eu <CaretDownIcon />
+                </span>
               </Link>
             </button>
           </nav>
         </div>
       </Wrapper>
     </Container>
-    <Switch>
-          <Route path="/about">
-            {/* <About /> */}
-          </Route>
-          <Route path="/users">
-            {/* <Users /> */}
-          </Route>
-          <Route path="/">
-            {/* <Home /> */}
-          </Route>
-        </Switch>
-    </Router>
   );
 };
 
