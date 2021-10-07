@@ -17,6 +17,11 @@ Project Inspired in LinkedIn Feed
 - [x] React.js
 - [x] Styled Components
 - [x] TypeScript
+- [x] Yup
+- [x] React Hook Form
+- [x] React Router DOM
+
+
 
 ## Starting Dev Environment
 
