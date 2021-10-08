@@ -1,22 +1,22 @@
 import React from 'react';
 import { Switch, Route, Link, useHistory } from 'react-router-dom';
-import Register from '../Register';
+import Register from '../Sign/register';
 import {
   Container,
   Background,
   Left,
   Right,
-} from './styles';
+} from '../Sign/styles';
 
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from "yup";
+import { Form } from './styles';
 
 type UserSubmitForm = {
   email: string;
   password: string;
 };
-
 
 const Login: React.FC = () => {
   let history = useHistory();
@@ -39,9 +39,7 @@ const Login: React.FC = () => {
   });
 
   const onSubmit = (data: UserSubmitForm) => {
-    
     history.push("/dashboard");
-
     console.log(JSON.stringify(data, null, 2));
   };
   return (
@@ -49,7 +47,7 @@ const Login: React.FC = () => {
     <Background>
       <Container>
       <Left>
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <Form onSubmit={handleSubmit(onSubmit)}>
           <section >
           <div className="form-group">
             <input 
@@ -76,7 +74,7 @@ const Login: React.FC = () => {
           <a href="/forgot">Esqueci minha senha</a>
           <button type="submit">Entrar</button>
           <div>Não tem uma conta?&nbsp;<Link to="/register">Registre-se</Link></div>
-        </form>
+        </Form>
       </Left>
       <Right>
         <img src="logo192.png"></img>

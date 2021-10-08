@@ -1,7 +1,7 @@
-import Login from './components/Login';
+import Login from './components/Sign/login';
 import GlobalStyles from './styles/GlobalStyles';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import Register from './components/Register';
+import Register from './components/Sign/register';
 import Layout from './components/Layout';
 function App() {
   return (

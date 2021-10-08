@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import Login from '../Login';
+import Login from './login';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
@@ -9,6 +9,7 @@ import {
   Background,
   Left,
   Right,
+  Form,
 } from './styles';
 
 type UserSubmitForm = {
@@ -57,7 +58,7 @@ const Register: React.FC = () => {
       <Background>
         <Container>
           <Left>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <Form onSubmit={handleSubmit(onSubmit)}>
               <section >
                 <div className="form-group">
                   <input
@@ -126,7 +127,7 @@ const Register: React.FC = () => {
 
               <button type="submit">Registrar</button>
               <div>Já tem uma conta?&nbsp;<a href="/">Login</a></div>
-            </form>
+            </Form>
           </Left>
           <Right>
             <img src="logo192.png"></img>
