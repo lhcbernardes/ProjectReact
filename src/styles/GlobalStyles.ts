@@ -33,7 +33,7 @@ export default createGlobalStyle`
   label {
         font-size: 18px;
         font-weight: 600;
-        color: var(--color-header);
+        color: var(--color-primary);
         margin: 8px 0px 24px;
         opacity: 0.8;
         transition: opacity 0.2s ease 0s;
@@ -45,7 +45,8 @@ export default createGlobalStyle`
  
   
   :root {
-    --color-header: #8257E5;
+    --color-primary: #8257E5;
+    --color-secondary: #32ff7e;
     --color-linkedin: #0077b5;
     --color-input: #e1e9ee;
     --color-icons: #c7d1d8;

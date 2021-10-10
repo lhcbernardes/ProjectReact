@@ -14,7 +14,6 @@ import {
 
 type UserSubmitForm = {
   fullname: string;
-  username: string;
   email: string;
   password: string;
   confirmPassword: string;
@@ -24,10 +23,6 @@ type UserSubmitForm = {
 const Register: React.FC = () => {
   const validationSchema = Yup.object().shape({
     fullname: Yup.string().required('Nome completo é necessario'),
-    username: Yup.string()
-      .required('Apelido é necessario')
-      .min(6, 'Apelido deve ter no minimo 6 caracteres')
-      .max(20, 'Apelido não deve passar 20 caracteres'),
     email: Yup.string()
       .required('Email é necessario')
       .email('Email é invalido'),
@@ -68,16 +63,6 @@ const Register: React.FC = () => {
                     className={errors.fullname ? 'is-invalid' : ''}
                   />
                   <div className="invalid-feedback">{errors.fullname?.message}</div>
-                </div>
-
-                <div className="form-group">
-                  <input
-                    placeholder="Nick"
-                    type="text"
-                    {...register('username')}
-                    className={`input ${errors.username ? 'is-invalid' : ''}`}
-                  />
-                  <div className="invalid-feedback">{errors.username?.message}</div>
                 </div>
 
                 <div className="form-group">

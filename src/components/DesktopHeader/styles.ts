@@ -3,7 +3,7 @@ import { GrLinkedin } from 'react-icons/gr';
 import { AiFillHome, AiOutlineBell, AiFillCaretDown } from 'react-icons/ai';
 
 export const Container = styled.div`
-  background: var(--color-header);
+  background: var(--color-primary);
   padding: 0 30px;
 
   position: fixed;

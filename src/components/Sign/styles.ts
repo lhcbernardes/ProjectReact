@@ -31,7 +31,7 @@ export const Form = styled.form`
   }
 
   input:focus {
-    border: 2px solid var(--color-header);
+    border: 2px solid var(--color-primary);
   }
 
   input.invalid {
@@ -41,7 +41,7 @@ export const Form = styled.form`
   a {
     font-size: 14px;
     font-weight: 600;
-    color: var(--color-header);
+    color: var(--color-primary);
     margin: 8px 0px 24px;
     opacity: 0.8;
     transition: opacity 0.2s ease 0s;
@@ -55,7 +55,7 @@ export const Form = styled.form`
   }
 
   button {
-    background-color: var(--color-header);
+    background-color: var(--color-primary);
     color: var(--color-white);
     font-size: 16px;
     padding: 14px 20px;
@@ -122,7 +122,7 @@ export const Left = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   text-align: left;
   border-radius: 5px;
   margin-right: 10%;
@@ -135,6 +135,6 @@ export const Right = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   text-align: left;
 `;
