@@ -29,6 +29,6 @@ export const Container = styled.div`
 export const HashtagIcon = styled(FaHashtag)`
   width: 16px;
   height: 16px;
-  color: var(--color-hashtag);
+  color: var(--color-gray2);
   margin-right: 8px;
 `;

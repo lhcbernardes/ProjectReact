@@ -45,6 +45,6 @@ export const Container = styled.div`
 export const Wave = styled(FaWind)`
   width: 50px;
   height: 50px;
-  color: var(--color-hashtag);
+  color: var(--color-tertiary);
   margin-right: 8px;
 `;

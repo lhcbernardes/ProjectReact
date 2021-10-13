@@ -27,7 +27,7 @@ const Header: React.FC = () => {
           <nav>
             <button className="active">
               <HomeIcon />
-              <Link to="/">Início</Link>
+              <Link to="/dashboard">Início</Link>
             </button>
             <button>
               <NotificationsIcon />

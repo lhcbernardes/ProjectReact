@@ -47,10 +47,13 @@ export default createGlobalStyle`
   :root {
     --color-primary: #8257E5;
     --color-secondary: #32ff7e;
+    --color-tertiary:#c56cf0;
+    --color-quaternary: #18dcff;
     --color-linkedin: #0077b5;
+    --color-quintary: #ff4d4d;
     --color-input: #e1e9ee;
     --color-icons: #c7d1d8;
-    --color-hashtag: #7a8b98;
+    --color-gray2: #7a8b98;
     --color-card: #202024;
     --color-background: #1a1921;
     --color-ad-text: #434649;

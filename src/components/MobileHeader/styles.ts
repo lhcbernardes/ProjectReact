@@ -1,15 +1,13 @@
 import styled from 'styled-components';
-import { FiMessageSquare } from 'react-icons/fi';
+import { MdMenu } from 'react-icons/md';
 
 export const Container = styled.div`
-  background: var(--color-link);
+  background: var(--color-primary);
   padding: 0 16px;
-
   height: 48px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   position: fixed;
   top: 0;
   left: 0;
@@ -21,20 +19,18 @@ export const Container = styled.div`
   }
 `;
 
-export const MessageIcon = styled(FiMessageSquare)`
+export const MessageIcon = styled(MdMenu)`
   height: 24px;
   width: 24px;
   color: var(--color-white);
   border-radius: 4px;
   flex-shrink: 0;
-
   margin-left: 17px;
 `;
 
 export const SearchInput = styled.input`
   margin-left: 16px;
   width: 100%;
-
   background: var(--color-input);
   color: var(--color-black);
   font-size: 14px;
