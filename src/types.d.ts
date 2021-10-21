@@ -4,5 +4,5 @@ interface LoadingProps {
 }
 
 interface LoadVideos {
-  item: string;
+  item: string | null;
 }

@@ -1,5 +1,5 @@
-import React from 'react';
-import { Route } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Redirect, Route, useHistory } from 'react-router-dom';
 import Login from './login';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -11,18 +11,25 @@ import {
   Right,
   Form,
 } from './styles';
+import { registerApi } from '../../services/auth.service';
+import { useAuth } from "../../context/auth";
 
 type UserSubmitForm = {
-  fullname: string;
+  username: string;
   email: string;
   password: string;
-  confirmPassword: string;
-  acceptTerms: boolean;
+  confirmPassword?: string;
+  acceptTerms?: boolean;
 };
 
 const Register: React.FC = () => {
+  const [loading, setLoading] = useState<boolean>(false);
+  const { setAuthTokens } = useAuth();
+  const [isLoggedIn, setLoggedIn] = useState(false);
+  const [isError, setIsError] = useState(false);
+
   const validationSchema = Yup.object().shape({
-    fullname: Yup.string().required('Nome completo é necessario'),
+    username: Yup.string().required('Nome completo é necessario'),
     email: Yup.string()
       .required('Email é necessario')
       .email('Email é invalido'),
@@ -45,8 +52,29 @@ const Register: React.FC = () => {
   });
 
   const onSubmit = (data: UserSubmitForm) => {
-    console.log(JSON.stringify(data, null, 2));
+    // console.log(JSON.stringify(data, null, 2));
+
+    delete data['confirmPassword'];
+    delete data['acceptTerms'];
+    registerApi(data).then((result) => {
+      if (result.status === 200) {
+        setLoading(false);
+        setAuthTokens(result.data.session);
+        setLoggedIn(true);
+      } else {
+        setIsError(true);
+        setLoading(false);
+      }
+    }).catch(e => {
+      console.error(e)
+      setIsError(true);
+      setLoading(false);
+    });
   };
+
+  if (isLoggedIn) {
+    return <Redirect to='/dashboard' />;
+  }
 
   return (
     <>
@@ -59,10 +87,10 @@ const Register: React.FC = () => {
                   <input
                     placeholder="Nome Completo"
                     type="text"
-                    {...register('fullname')}
-                    className={errors.fullname ? 'is-invalid' : ''}
+                    {...register('username')}
+                    className={errors.username ? 'is-invalid' : ''}
                   />
-                  <div className="invalid-feedback">{errors.fullname?.message}</div>
+                  <div className="invalid-feedback">{errors.username?.message}</div>
                 </div>
 
                 <div className="form-group">
@@ -97,15 +125,15 @@ const Register: React.FC = () => {
                 </div>
 
                 <div className="form-group checkbox-wrapper">
-                    <input
-                      type="checkbox"
-                      {...register('acceptTerms')}
-                      className="checkbox"
-                    />
-                    <label htmlFor="acceptTerms" className="checkbox-label">
-                      Eu li os termos de aceite
-                    </label>
-                  
+                  <input
+                    type="checkbox"
+                    {...register('acceptTerms')}
+                    className="checkbox"
+                  />
+                  <label htmlFor="acceptTerms" className="checkbox-label">
+                    Eu li os termos de aceite
+                  </label>
+
                 </div>
                 <div className="invalid-feedback">{errors.acceptTerms?.message}</div>
               </section>

@@ -5,19 +5,30 @@ import Register from './components/Sign/register';
 import Layout from './components/Layout';
 import Page404 from './components/Page404';
 import Profile from './components/Profile';
+import { AuthContext } from "./context/auth";
+import PrivateRoute from './PrivateRoute';
+import { useState } from 'react';
 function App() {
+  const [authTokens, setAuthTokens] = useState();
+  
+  const setTokens = (data: any) => {
+    localStorage.setItem("tokens", JSON.stringify(data));
+    setAuthTokens(data);
+  }
+
   return (
     <>
     <GlobalStyles/>
     <BrowserRouter>
-      
+    <AuthContext.Provider value={{ authTokens, setAuthTokens: setTokens }}>
       <Switch>
-            <Route path="/" exact={true} component={Login} />
+            <Route path={["/", "/login"]} exact={true} component={Login} />
             <Route path="/register" component={Register} />
-            <Route path="/dashboard" component={Layout} />
-            <Route path="/profile" component={Profile} />
+            <PrivateRoute path="/dashboard" component={Layout} />
+            <PrivateRoute path="/profile" component={Profile} />
             <Route path='*' component={Page404} />
         </Switch>
+      </AuthContext.Provider>
     </BrowserRouter>
     </>
   );
