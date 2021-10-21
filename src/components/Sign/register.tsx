@@ -25,6 +25,7 @@ type UserSubmitForm = {
 const Register: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const { setAuthTokens } = useAuth();
+  const [errorMensage, setMensage] = useState<string>('');
   const [isLoggedIn, setLoggedIn] = useState(false);
   const [isError, setIsError] = useState(false);
 
@@ -62,7 +63,7 @@ const Register: React.FC = () => {
         setAuthTokens(result.data.session);
         setLoggedIn(true);
       } else {
-        alert(result.Detail);
+        setMensage(result.Detail);
         setIsError(true);
         setLoading(false);
       }
@@ -142,6 +143,7 @@ const Register: React.FC = () => {
               <button type="submit">Registrar</button>
               <div>Já tem uma conta?&nbsp;<a href="/">Login</a></div>
             </Form>
+            { isError && <h4>{errorMensage}</h4> }
           </Left>
           <Right>
             <img src="logo192.png"></img>

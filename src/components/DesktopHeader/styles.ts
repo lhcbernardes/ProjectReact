@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import { GrLinkedin } from 'react-icons/gr';
-import { AiFillHome, AiOutlineBell, AiFillCaretDown } from 'react-icons/ai';
+import { AiFillHome, AiOutlineBell, AiFillCaretDown, AiOutlinePoweroff } from 'react-icons/ai';
 
 export const Container = styled.div`
   background: var(--color-primary);
@@ -109,4 +109,9 @@ export const ProfileCircle = styled.img`
 export const CaretDownIcon = styled(AiFillCaretDown)`
   width: 16px;
   height: 16px;
+`;
+
+export const TurnOffIcon = styled(AiOutlinePoweroff)`
+  width: 25px;
+  height: 25px;
 `;

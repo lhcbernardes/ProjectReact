@@ -114,6 +114,12 @@ export const Container = styled.div`
     font-size: 54px;
     line-height: 64px;
   }
+
+ h4 {
+  margin: 5%;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  }
 `;
 
 export const Left = styled.div`

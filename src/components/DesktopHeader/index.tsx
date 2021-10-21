@@ -9,6 +9,7 @@ import {
   NotificationsIcon,
   ProfileCircle,
   CaretDownIcon,
+  TurnOffIcon
 } from './styles';
 
 import {
@@ -41,7 +42,7 @@ const Header: React.FC = () => {
               <Link to="/notifications">Notificações</Link>
             </button>
             <button onClick={logOut}>
-              <NotificationsIcon />
+              <TurnOffIcon />
               <span >Log out</span>
             </button>
             <button>

@@ -27,7 +27,7 @@ function App() {
             <PrivateRoute path="/dashboard" component={Layout} />
             <PrivateRoute path="/profile" component={Profile} />
             <Route path='*' component={Page404} />
-        </Switch>
+      </Switch>
       </AuthContext.Provider>
     </BrowserRouter>
     </>
