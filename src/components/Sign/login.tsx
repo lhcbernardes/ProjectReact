@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Switch, Route, Link, useHistory, Redirect } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Switch, Route, Link, Redirect } from 'react-router-dom';
 import Register from '../Sign/register';
 import {
   Container,
@@ -51,6 +51,7 @@ const Login: React.FC = () => {
         setAuthTokens(result.data.session);
         setLoggedIn(true);
       } else {
+        alert(result.Detail);
         setIsError(true);
         setLoading(false);
       }

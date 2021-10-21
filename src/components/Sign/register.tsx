@@ -62,6 +62,7 @@ const Register: React.FC = () => {
         setAuthTokens(result.data.session);
         setLoggedIn(true);
       } else {
+        alert(result.Detail);
         setIsError(true);
         setLoading(false);
       }

@@ -15,12 +15,14 @@ import {
   Link
 } from "react-router-dom";
 import { useAuth } from "../../context/auth";
+
 const Header: React.FC = () => {
   const { setAuthTokens } = useAuth();
 
-  function logOut() {
+  const logOut = () => {
     setAuthTokens();
   }
+  
   return (
     <Container>
       <Wrapper>

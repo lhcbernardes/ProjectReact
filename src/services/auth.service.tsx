@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 
 const API_URL = "https://api.m3o.com/v1/user/";
 const KEY = "ZjExMzcwYWYtY2NhZi00MzJhLThlZmQtNjU3MGRiNGRhMjU0";
@@ -13,9 +13,12 @@ export const registerApi = (data: any) => {
     .post(API_URL + "Create", data, { headers: headers })
     .then((response: any) => {
       return response;
-    }).catch((error) => {
-      console.error('Erro', error);
-    });
+    }).catch((reason: AxiosError) => {
+      if (reason.response!.status === 400) {
+        return reason.response!.data
+      } 
+      // console.log(reason.message)
+    })
 };
 
 export const login = (data: any) => {
@@ -26,13 +29,27 @@ export const login = (data: any) => {
         localStorage.setItem("user", JSON.stringify(response.data));
       }
       return response;
-    }).catch((error) => {
-      console.error('Erro', error);
-    });
+    }).catch((reason: AxiosError) => {
+      if (reason.response!.status === 400) {
+        return reason.response!.data
+      } 
+      else if (reason.response!.status === 401)
+        return reason.response!.data
+    })
 };
 
 export const logout = () => {
-  localStorage.removeItem("user");
+  const user = localStorage.getItem("user");
+  console.log(user);
+  // return axios
+  //   .post(API_URL + "Login", user, { headers: headers })
+  //   .then((response: any) => {
+  //     localStorage.removeItem("user");
+  //     return response;
+  //   }).catch((error) => {
+  //     console.error('Erro', error);
+  //   });
+  
 };
 
 export const getCurrentUser = () => {
