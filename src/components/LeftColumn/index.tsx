@@ -7,14 +7,14 @@ import HashtagPanel from './HashtagPanel';
 import { Container } from './styles';
 import ProfileExtends from './ProfileExtends';
 
-const LeftColumn: React.FC<LoadingProps> = ({ isExtends, isLoading  }: LoadingProps) => {
+const LeftColumn: React.FC<LoadingProps> = ({ data, isLoading  }: LoadingProps) => {
   return (
     <Container className="left-column">
       {isLoading ? (
         <LoadingProfilePanel />
       ) : (
         <>
-          {isExtends ? (<ProfileExtends/>): (<ProfilePanel />)}
+          {data ? (<ProfileExtends data={data}/>): (<ProfilePanel />)}
 
           <HashtagPanel />
         </>

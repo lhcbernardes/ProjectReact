@@ -1,8 +1,14 @@
 interface LoadingProps {
-  isLoading: boolean;
-  isExtends?: boolean;
+  isLoading?: boolean;
+  data?: any;
 }
 
 interface LoadVideos {
   item: string | null;
+}
+
+interface ItensMenu {
+  title: string;
+  path: string;
+  cName: string;
 }

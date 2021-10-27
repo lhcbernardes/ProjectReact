@@ -10,7 +10,7 @@ import PrivateRoute from './PrivateRoute';
 import { useState } from 'react';
 function App() {
   const [authTokens, setAuthTokens] = useState();
-  
+
   const setTokens = (data: any) => {
     localStorage.setItem("tokens", JSON.stringify(data));
     setAuthTokens(data);
@@ -18,18 +18,18 @@ function App() {
 
   return (
     <>
-    <GlobalStyles/>
-    <BrowserRouter>
-    <AuthContext.Provider value={{ authTokens, setAuthTokens: setTokens }}>
-      <Switch>
+      <GlobalStyles />
+      <BrowserRouter>
+        <AuthContext.Provider value={{ authTokens, setAuthTokens: setTokens }}>
+          <Switch>
             <Route path={["/", "/login"]} exact={true} component={Login} />
             <Route path="/register" component={Register} />
             <PrivateRoute path="/dashboard" component={Layout} />
             <PrivateRoute path="/profile" component={Profile} />
             <Route path='*' component={Page404} />
-      </Switch>
-      </AuthContext.Provider>
-    </BrowserRouter>
+          </Switch>
+        </AuthContext.Provider>
+      </BrowserRouter>
     </>
   );
 }

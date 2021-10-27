@@ -4,7 +4,7 @@ import Panel from '../../Panel';
 
 import { Container } from './styles';
 
-const ProfilePanel: React.FC = () => {
+const ProfilePanel: React.FC<LoadingProps> = ({ data, isLoading  }: LoadingProps) => {
   return (
     <Panel>
       <Container>
@@ -16,8 +16,8 @@ const ProfilePanel: React.FC = () => {
         />
         </div>
         
-        <h1>LLLeo</h1>
-        <h2>Software Engineer @ Rocketseat</h2>
+        <h1>{data.username}</h1>
+        <h2>{data.email}</h2>
 
         <div className="separator"></div>
 
