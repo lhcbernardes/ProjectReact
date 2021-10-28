@@ -4,7 +4,7 @@ import authHeader from "./auth-header";
 const API_URL = "https://api.m3o.com/v1/user";
 const userStr = localStorage.getItem("tokens");
   let user: { userId: any; } | null = null;
-  if (userStr)
+  if (userStr && userStr!=='' && userStr!==undefined)
    {
      console.log(userStr)
       user = JSON.parse(userStr);

@@ -60,8 +60,6 @@ const Register: React.FC = () => {
     registerApi(data).then((result) => {
       if (result.status === 200) {
         setLoading(false);
-        setAuthTokens(result.data.session);
-        setLoggedIn(true);
       } else {
         setMensage(result.Detail);
         setIsError(true);

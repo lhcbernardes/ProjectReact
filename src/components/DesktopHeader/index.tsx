@@ -33,7 +33,9 @@ const Header: React.FC = () => {
   const {setAuthTokens} = useAuth();
 
   const logOut = () => {
+    
     setAuthTokens();
+    localStorage.removeItem('tokens');
   }
 
   const handleClick = () => setClick(!click);
@@ -57,7 +59,7 @@ const Header: React.FC = () => {
 
   return (
       <nav className='navbar'>
-        <Link to='/' className='navbar-logo' >
+        <Link to='/dashboard' className='navbar-logo' >
           REACT
           <i className='fab fa-firstdraft' />
         </Link>
